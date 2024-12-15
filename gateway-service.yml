@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: bankati-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: account-management-service
+          uri: lb://ACCOUNTMANAGEMENT-SERVICE
+          predicates:
+            - Path=/account-management/**
+
+
+        - id: batch-service
+          uri: lb://BATCH-SERVICE
+          predicates:
+            - Path=/batch/**
+
+
+        - id: cmi-service
+          uri: lb://CMI-SERVICE
+          predicates:
+            - Path=/cmi/**
+
+
+        - id: notification-service
+          uri: lb://NOTIFICATION-SERVICE
+          predicates:
+            - Path=/notifications/**
+
+
+        - id: transaction-service
+          uri: lb://TRANSACTION-SERVICE
+          predicates:
+            - Path=/transactions/**
+
+
+        - id: virtual-card-service
+          uri: lb://VIRTUELCARD-SERVICE
+          predicates:
+            - Path=/virtual-card/**
+
+
+  eureka:
+    client:
+      service-url:
+        defaultZone: http://localhost:8761/eureka/
