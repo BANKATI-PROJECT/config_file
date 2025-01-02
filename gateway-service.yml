@@ -32,10 +32,10 @@ spring:
             - Path=/transactions/**
 
 
-        - id: virtual-card-service
-          uri: lb://VIRTUELCARD-SERVICE
+        - id: portfeuille-service
+          uri: lb://PORTEFEUILLE-SERVICE
           predicates:
-            - Path=/virtual-card/**
+            - Path=/portefeuille-card/**
 
 
   eureka:
